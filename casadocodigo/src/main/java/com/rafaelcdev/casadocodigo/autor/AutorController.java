@@ -19,6 +19,9 @@ public class AutorController {
     @PostMapping
     public ResponseEntity<AutorRequest> insertAutor(@RequestBody @Valid AutorRequest autorRequest){
         Autor autor = autorRequest.toModel();
+        if(repository.existsByEmail(autorRequest.getEmail())){
+            return ResponseEntity.unprocessableEntity().build();
+        }
         repository.save(autor);
         return ResponseEntity.ok().build();
     }
