@@ -8,22 +8,16 @@ import javax.validation.constraints.Size;
 public class AutorRequest {
 
     @NotBlank
-    private String name;
+    private String nome;
     @NotBlank @Email
     private String email;
     @NotNull @Size(max = 400)
-    private String description;
+    private String descricao;
     
-    public AutorRequest(Long id, String name, String email, String description) {
-        this.name = name;
+    public AutorRequest(String nome, String email, String descricao) {
+        this.nome = nome;
         this.email = email;
-        this.description = description;
-    }
-
-    public AutorRequest(Autor entity) {
-        name = entity.getName();
-        email = entity.getEmail();
-        description = entity.getDescription();
+        this.descricao = descricao;
     }
 
     public String getEmail() {
@@ -31,6 +25,6 @@ public class AutorRequest {
     }
 
     public Autor toModel() {
-        return new Autor(this.name, this.email, this.description);
+        return new Autor(this.nome, this.email, this.descricao);
     }
 }

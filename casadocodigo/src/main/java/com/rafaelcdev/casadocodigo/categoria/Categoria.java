@@ -13,13 +13,13 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String nome;
 
     @Deprecated
     public Categoria(){
     }
 
-    public Categoria(String name) {
-        this.name = name;
+    public Categoria(String nome) {
+        this.nome = nome;
   }
 }

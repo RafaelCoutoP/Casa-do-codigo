@@ -14,39 +14,19 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String nome;
     private String email;
-    private String description;
-    private Instant moment;
+    private String descricao;
+    private Instant momento;
 
     @Deprecated
     public Autor(){
     }
 
-    public Autor(String name, String email, String description) {
-        this.name = name;
+    public Autor(String nome, String email, String descricao) {
+        this.nome = nome;
         this.email = email;
-        this.description = description;
-        moment = Instant.now();
-    }
-
-    public Long getId(){
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Instant getMoment() {
-        return moment;
+        this.descricao = descricao;
+        momento = Instant.now();
     }
 }

@@ -29,7 +29,7 @@ public class CategoriaController {
 
     @InitBinder
     public void validacao(WebDataBinder binder){
-        CampoUnicoValid<CategoriaRequest, String> validadorNome = new CampoUnicoValid<>("name", CategoriaRequest.class, repository::existsByName);
+        CampoUnicoValid<CategoriaRequest, String> validadorNome = new CampoUnicoValid<>("name", CategoriaRequest.class, repository::existsByNome);
         binder.addValidators(validadorNome);    
     }
 }
