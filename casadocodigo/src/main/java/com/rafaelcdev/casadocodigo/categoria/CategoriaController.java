@@ -1,4 +1,4 @@
-package com.rafaelcdev.casadocodigo.autor;
+package com.rafaelcdev.casadocodigo.categoria;
 
 import javax.validation.Valid;
 
@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/autores")
-public class AutorController {
-
+@RequestMapping(value = "categorias")
+public class CategoriaController {
+    
     @Autowired
-    private AutorRepository repository;
+    private CategoriaRepository repository;
 
     @PostMapping
-    public ResponseEntity<AutorRequest> insertAutor(@RequestBody @Valid AutorRequest autorRequest){
-        Autor autor = autorRequest.toModel();
-        repository.save(autor);
+    public ResponseEntity<CategoriaRequest> insertCategoria(@RequestBody @Valid CategoriaRequest request){
+        Categoria categoria = request.toModel();
+        repository.save(categoria);    
         return ResponseEntity.ok().build();
     }
 
     @InitBinder
     public void validacao(WebDataBinder binder){
-        CampoUnicoValid<AutorRequest, String> validadorEmail = new CampoUnicoValid<>("email", AutorRequest.class, repository::existsByEmail);
-        binder.addValidators(validadorEmail);
+        CampoUnicoValid<CategoriaRequest, String> validadorNome = new CampoUnicoValid<>("name", CategoriaRequest.class, repository::existsByName);
+        binder.addValidators(validadorNome);    
     }
 }
