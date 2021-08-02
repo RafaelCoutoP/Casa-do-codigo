@@ -9,21 +9,21 @@ public class CategoriaRequest {
     
     @NotNull 
     @NotBlank 
-    private String name;
+    private String nome;
 
     public CategoriaRequest(){
 
     }
 
-    public CategoriaRequest(String name) {
-        this.name = name;
+    public CategoriaRequest(String nome) {
+        this.nome = nome;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     public Categoria toModel() {
-        return new Categoria(this.name);
+        return new Categoria(this.nome);
     }
 }
