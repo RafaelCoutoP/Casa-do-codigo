@@ -42,6 +42,7 @@ public class LivroController {
         return ResponseEntity.ok(conversao);
     }
 
+    @Transactional(readOnly = true)
     @GetMapping("/{id}")
     public ResponseEntity <LivroDetalheResponse> detalhesLivro(@PathVariable Long id) {
         Optional<Livro> livro = livroRepository.findById(id);
