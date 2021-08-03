@@ -6,6 +6,7 @@ import com.rafaelcdev.casadocodigo.validacao.CampoUnicoValid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ public class AutorController {
     @Autowired
     private AutorRepository repository;
 
+    @Transactional
     @PostMapping
     public ResponseEntity<AutorRequest> insertAutor(@RequestBody @Valid AutorRequest autorRequest){
         Autor autor = autorRequest.toModel();
