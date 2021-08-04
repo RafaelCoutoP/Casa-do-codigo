@@ -30,6 +30,7 @@ public class Livro {
     private Integer numeroPaginas;
     @Column(unique = true)
     private String isbn;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dataPublicacao;
     @ManyToOne
